@@ -64,11 +64,12 @@ addTwoNumbers('Hello', 5) //=> NaN
 
 const addTwoNumbers = (inputOne, inputTwo) => {
 
-  if ((inputOne >= 0 || inputOne <= 0) && (inputTwo >= 0 || inputTwo <= 0)){
+  if ((inputOne >= 0 || inputOne <= 0) && (inputTwo >= 0 || inputTwo <= 0)) {
     return ((inputOne) + (inputTwo))
-}else {
-  return NaN
-}}
+  } else {
+    return NaN
+  }
+}
 //Can use typeof too
 
 
@@ -94,7 +95,7 @@ sumNumbers([]) //=> 0
 // Your solution for 03-sumNumbers here:
 
 const sumNumbers = (inputArray) => {
-  let sumOfArray=0
+  let sumOfArray = 0
 
   for (let index = 0; index < inputArray.length; index++) {
     sumOfArray += inputArray[index];
@@ -125,18 +126,19 @@ addList(7,-12) //=> -5
 // Your solution for 04-addList here:
 
 function addList() {
-  
-  if(arguments.length===0){
+
+  if (arguments.length === 0) {
     return 0
-  }else{
-  let sumtoReturn = 0
-
-  for (let index = 0; index < arguments.length; index++) {
-    sumtoReturn = sumtoReturn+ arguments[index]
   }
+  else {
+    let sumtoReturn = 0
 
-  return sumtoReturn
-}
+    for (let index = 0; index < arguments.length; index++) {
+      sumtoReturn = sumtoReturn + arguments[index]
+    }
+
+    return sumtoReturn
+  }
 }
 
 
@@ -165,7 +167,18 @@ computeRemainder(10.5, 3) //=> 1.5
 // Your solution for 05-computeRemainder here:
 
 
+const computeRemainder = (numOne, numTwo) => {
+  if (numTwo === 0) {
+    return Infinity
+  } else {
+    //return numOne%numTwo  //works
 
+    let reminder = numOne - (numTwo * Math.floor(numOne / numTwo))
+
+    return reminder
+  }
+
+}
 
 
 /*-----------------------------------------------------------------------------
@@ -191,9 +204,37 @@ range(5,2) //=> "First argument must be less than second"
 -----------------------------------------------------------------------------*/
 // Your solution for 06-range here:
 
+const range = (intOne, intTwo) => {
+  if (intOne > intTwo) {
+    return "First argument must be less than second"
+  } else{
+    let arr = []
+    let difference = 0 
 
+    if(intOne!=intTwo){
+      difference= intTwo - intOne
+      
+      arr.push(intOne)
+    }
+    // console.log(arr)
+    
+    
+    
+    for (let index = 1; index < difference; index++) {
+      arr.push(arr[index-1]+1)
+      
+    }
+    // console.log(arr)
+    
+    return arr
+  }
+}
 
-
+// range(0,9)
+range(1,4) //=> [1,2,3]
+range(-2, 3) //=> [-2,-1,0,1,2]
+range(1,1) //=> []
+range(5,2) //=> "First argument must be less than second"
 
 /*-----------------------------------------------------------------------------
 Challenge: 07-reverseUpcaseString
